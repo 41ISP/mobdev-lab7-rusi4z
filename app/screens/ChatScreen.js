@@ -1,17 +1,15 @@
 
-import { useRoute } from '@react-navigation/native'; //Для получения ID контакта
+import { useRoute } from '@react-navigation/native';
+import { StyleSheet } from 'react-native';
 
 const ChatScreen = () => {
   const route = useRoute();
-  const contactId = route.params?.contactId; //Получаем ID контакта из параметров маршрута
-  const [messages, setMessages] = useState([]); //Здесь будет храниться история сообщений
+  const contactId = route.params?.contactId;
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    //Здесь должна быть функция загрузки сообщений из источника данных (например, базы данных)
-    //Пример (замените на вашу логику):
     const loadMessages = async () => {
-      // ... ваш код для загрузки сообщений по contactId ...
-      const fetchedMessages = await getMessagesFromDatabase(contactId); //Функция, которую вам нужно реализовать
+      const fetchedMessages = await getMessagesFromDatabase(contactId);
       setMessages(fetchedMessages);
     };
     if (contactId) {
@@ -20,10 +18,7 @@ const ChatScreen = () => {
   }, [contactId]);
 
   const handleSendMessage = (message) => {
-    //Здесь должна быть функция отправки сообщения на сервер
-    //Пример (замените на вашу логику):
-    sendMessageToServer(contactId, message); //Функция, которую вам нужно реализовать
-    //Добавление сообщения в локальный стейт (для мгновенного отображения)
+    sendMessageToServer(contactId, message); 
     setMessages([...messages, { sender: 'me', text: message }]);
   };
 

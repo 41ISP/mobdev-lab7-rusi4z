@@ -15,7 +15,9 @@ const App = () => {
         <Tab.Navigator>
           <Tab.Screen name="Чаты" component={ChatScreen} />
           <Tab.Screen name="Контакты" component={ContactsScreen} />
-          {/  Чат-вкладка обрабатывается внутри ChatScreen /}
+          {
+            ChatScreen()
+          }
         </Tab.Navigator>
       ) : (
         <LoginScreen setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
