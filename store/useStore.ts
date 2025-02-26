@@ -6,10 +6,10 @@ interface StoreState {
     resetUserId: () => void;
 }
 
-const useStore = create<StoreState>((set) => ({
+const useUserStore = create<StoreState>()((set) => ({
     userId: '',
     setUserId: (id: string) => set({ userId: id }),
     resetUserId: () => set({ userId: '' }),
 }));
 
-export default useStore;
+export default useUserStore;

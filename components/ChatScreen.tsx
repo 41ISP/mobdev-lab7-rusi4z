@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, TextInput, Button, FlatList } from 'react-native';
-import { useStore } from 'zustand';
+import { View, TextInput, Button, FlatList, Text } from 'react-native';
+import useStore from '@/store/useStore';
 import io from 'socket.io-client';
 
 const socket = io('http://your-server-url'); // Замените на свой URL

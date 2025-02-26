@@ -1,25 +1,27 @@
+import useUserStore from '@/store/useStore';
+import useStore from '@/store/useStore';
 import React, { useState } from 'react';
 import { View, TextInput, Button, Alert } from 'react-native';
-import { useStore } from 'zustand';
+
 
 const LoginScreen: React.FC = () => {
-    const [userId, setUserId] = useState('');
-    const setUser = useStore((state) => state.setUser);
+    const [value, setValue] = useState('');
+    const {setUserId} = useUserStore();
 
     const handleLogin = () => {
-        if (userId.trim() === '') {
+        if (value.trim() === '') {
             Alert.alert('Ошибка', 'Введите уникальный ID');
             return;
         }
-        setUser(userId);
+        setUserId(value);
     };
 
     return (
         <View>
             <TextInput 
               placeholder="Введите свой ID"
-              value={userId}
-              onChangeText={setUserId}
+              value={value}
+              onChangeText={setValue}
             />
             <Button title="Войти" onPress={handleLogin} />
         </View>

@@ -1,11 +1,12 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import { useStore } from 'zustand';
 import LoginScreen from '@/components/LoginScreen';
 import ChatScreen from '@/components/ChatScreen';
+import useStore from '@/store/useStore';
 
-const App: React.FC = () => {
-    const userId = useStore((state) => state.userId);
+
+const RootLayout = () => {
+    const userId = useStore();
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -14,4 +15,4 @@ const App: React.FC = () => {
     );
 };
 
-export default App;
+export default RootLayout;
