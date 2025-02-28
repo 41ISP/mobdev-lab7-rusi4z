@@ -25,4 +25,5 @@ export interface ApiResponse<T> {
 }
 
 export type UserResponse = ApiResponse<User>;
+export type UserRoleResponse = ApiResponse<UserRole>;
 export type ProductResponse = ApiResponse<Product[]>;

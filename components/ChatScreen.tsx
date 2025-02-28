@@ -3,7 +3,7 @@ import { View, TextInput, Button, FlatList, Text } from 'react-native';
 import useStore from '@/store/useStore';
 import io from 'socket.io-client';
 
-const socket = io('http://your-server-url'); // Замените на свой URL
+const socket = io('https://automatic-telegram-r9q6p79wgrghpjxv-8081.app.github.dev/');
 
 const ChatScreen: React.FC = () => {
     const userId = useStore((state) => state.userId);
